@@ -6,6 +6,7 @@ $LOAD_PATH.unshift File.join(__dir__, '..', 'lib')
 require 'optparse'
 require 'paru/filter'
 require 'pandoc/include_filter/version'
+require 'pandoc/include_filter/included_file'
 
 begin
   OptionParser.new do |opts|

@@ -4,7 +4,7 @@
 
 * This is the filter's source code:
 
-  ```bash
+  ```ruby
   #include exe/pandoc-include-filter
   ```
 
