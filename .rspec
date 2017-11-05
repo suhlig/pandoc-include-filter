@@ -1,0 +1,7 @@
+-I lib
+--backtrace
+--color
+--format documentation
+--order rand
+--require spec_helper
+--tty

@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.join(__dir__, '..', 'lib')
+
+require 'paru/filter'
+require 'pandoc/include_filter'
+
+Paru::Filter.run do
+  with 'CodeBlock' do |code_block|
+    command, included_file_path, *classes = code_block.string.strip.split(' ')
+
+    if command == '#include'
+      included_file = Pandoc::IncludedFile.new(included_file_path).pathname
+
+      if !included_file.exist?
+        warn "Warning: Could not read included file #{included_file_path} \
+        (resolved to absolute path #{included_file}). Keeping literal statement."
+      else
+        code_block.string = included_file.read
+
+        classes.each do |c|
+          code_block.attr.classes.push(c)
+        end
+      end
+    end
+  end
+end
