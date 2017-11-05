@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pandoc-include-filter (0.2.0)
+    pandoc-include-filter (0.3.0)
       paru
 
 GEM
