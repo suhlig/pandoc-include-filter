@@ -3,15 +3,30 @@
 
 $LOAD_PATH.unshift File.join(__dir__, '..', 'lib')
 
+require 'optparse'
 require 'paru/filter'
-require 'pandoc/include_filter'
+require 'pandoc/include_filter/version'
+
+begin
+  OptionParser.new do |opts|
+    opts.banner = <<~BANNER
+      A Pandoc filter that includes files declared with #include filename. See http://www.pandoc.org/filters.html for general filter usage.
+      Usage: pandoc --filter pandoc-include-filter [OPTIONS] [FILES]
+    BANNER
+
+    opts.version = "v.#{Pandoc::IncludeFilter::VERSION}"
+  end.parse!
+rescue OptionParser::InvalidOption => e
+  warn e.message
+  exit 1
+end
 
 Paru::Filter.run do
   with 'CodeBlock' do |code_block|
     command, included_file_path, *classes = code_block.string.strip.split(' ')
 
     if command == '#include'
-      included_file = Pandoc::IncludedFile.new(included_file_path).pathname
+      included_file = Pandoc::IncludeFilter::IncludedFile.new(included_file_path).pathname
 
       if !included_file.exist?
         warn "Warning: Could not read included file #{included_file_path} \

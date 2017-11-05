@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    pandoc-include-filter (0.2.0)
+      paru
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,10 +88,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
   guard
   guard-bundler
   guard-rspec
-  paru
+  pandoc-include-filter!
   pry
   pry-byebug
   rake

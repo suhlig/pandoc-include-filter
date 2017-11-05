@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'pandoc/include_filter'
+require 'pandoc/include_filter/included_file'
 
-describe Pandoc::IncludedFile do
+describe Pandoc::IncludeFilter::IncludedFile do
   subject(:included_file_path) { described_class.new(path).pathname }
 
   context 'with a plain path' do
