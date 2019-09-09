@@ -45,7 +45,7 @@ GEM
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
-    paru (0.3.2.3)
+    paru (0.3.2.4)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
