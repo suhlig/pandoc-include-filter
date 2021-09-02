@@ -1,6 +1,6 @@
 # Pandoc `#include` Filter
 
-[![Build Status](https://travis-ci.org/suhlig/pandoc-include-filter.svg?branch=master)](https://travis-ci.org/suhlig/pandoc-include-filter)
+[![Build Status](https://travis-ci.com/suhlig/pandoc-include-filter.svg?branch=master)](https://travis-ci.com/suhlig/pandoc-include-filter)
 
 This is a [Pandoc](http://pandoc.org/) [filter](http://www.pandoc.org/filters.html) for including files in code blocks.
 
