@@ -16,6 +16,7 @@ jobs:
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.3'
-        bundler: default
-        bundler-cache: true
+        bundler: none
+    - run: gem install bundler -v 2.5.9
+    - run: bundle install
     - run: bundle exec rake
